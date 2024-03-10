@@ -1,0 +1,4 @@
+Answer 1=> Each product document in the product collection has a category_id field referencing a document in the product_category collection.
+This establishes a one-to-many relationship between product and product_category, where each product belongs to one category, and each category can have multiple products.
+
+Answer 2=> To ensure that each product in the product table has a valid category assigned to it, you can enforce referential integrity at the application level or use MongoDB's validation rules. One approach is to use MongoDB's $lookup aggregation pipeline stage to perform a left outer join between product and product_category collections and then filter out the products with invalid category references. Additionally, you could implement a pre-save hook in your application logic to validate the category references before saving or updating a product document.
